@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { RoutesRoutingModule } from './routes/routes-routing.module';
 import { AppComponent } from './app.component';
+import { NgxEchartsModule } from 'ngx-echarts';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     RoutesRoutingModule,
-    RouterModule.forRoot([])
+    RouterModule.forRoot([]),
+    NgxEchartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
