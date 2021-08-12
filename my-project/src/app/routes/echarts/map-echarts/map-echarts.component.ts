@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import * as echarts from 'echarts';
 import 'echarts-gl';
-import '../../../../assets/lib/yz.js'
+import '../../../../assets/lib/yz.js';
 
 
 @Component({
@@ -14,35 +14,33 @@ export class MapEchartsComponent implements OnInit {
 
   constructor() { }
   private geoCoordMap = {
-    '中芯国际': [116.512874, 39.788658],
-    '亦庄创意生活广场': [116.51093, 39.815969],
-    '京东': [116.570059, 39.791678],
-    '京东方': [116.558281, 39.792791],
-    '力宝广场': [	116.508233, 39.811539],
-    '北京市二十一世纪实验幼儿园': [116.498443, 39.800739],
-    '北京市第二中学亦庄分校': [116.495241, 39.801438],
-    '同仁医院亦庄院区': [116.524664, 39.780891],
-    '城乡世纪广场': [116.539457, 39.807934],
-    '大族广场': [116.519222, 39.798074],
-    '奔驰一厂': [116.463902, 39.839657],
-    '奔驰二厂': [116.513907, 39.756997],
-    '奔驰发动机工厂': [116.522606, 39.740288],
-    '盒马鲜生(经开店)': [116.503829, 39.79185]
+    中芯国际: [116.512874, 39.788658],
+    亦庄创意生活广场: [116.51093, 39.815969],
+    京东: [116.570059, 39.791678],
+    京东方: [116.558281, 39.792791],
+    力宝广场: [116.508233, 39.811539],
+    北京市二十一世纪实验幼儿园: [116.498443, 39.800739],
+    北京市第二中学亦庄分校: [116.495241, 39.801438],
+    同仁医院亦庄院区: [116.524664, 39.780891],
+    城乡世纪广场: [116.539457, 39.807934],
+    大族广场: [116.519222, 39.798074],
+    奔驰一厂: [116.463902, 39.839657],
+    奔驰二厂: [116.513907, 39.756997],
+    奔驰发动机工厂: [116.522606, 39.740288],
   };
 
 
    convertData = (data) => {
     const res: any = [];
-    for (let i = 0; i < data.length; i++) {
-        const geoCoord: any = this.geoCoordMap[data[i].name];
+    data.forEach(item => {
+        const geoCoord: any = this.geoCoordMap[item.name];
         if (geoCoord) {
             res.push({
-                name: data[i].name,
-                value: geoCoord.concat(data[i].value)
+                name: item.name,
+                value: geoCoord.concat(item.value)
             });
         }
-    }
-    // console.log(res);
+    });
     return res;
   }
 
@@ -50,11 +48,7 @@ export class MapEchartsComponent implements OnInit {
     this.loadMap();
   }
 
-
-
-
-  loadMap() {
-
+  loadMap(): any {
     const option = {
         title: {
             text: '测试bar3D、scatter3D、geo3D',

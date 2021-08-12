@@ -15,7 +15,7 @@ export class LineEchartsComponent implements OnInit {
     this.loadEcharts();
   }
 
-  loadEcharts() {
+  loadEcharts(): any {
     // const ec = echarts as any;
     const lineChart = echarts.init(document.getElementById('echarts_test'));
     const lineChartOption = {
